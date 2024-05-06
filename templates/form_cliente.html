@@ -8,10 +8,11 @@
       method="{% if cliente %}PUT{% else %}POST{% endif %}"
 
       {% if cliente %}
-        c-swap=".cliente-{{cliente.id}}"
+        c-swap="#cliente-{{cliente.id}}"
       {% else %}
         c-append="#lista_clientes"
-      {% endif %}>
+      {% endif %}
+      c-reload-container="true">
 
   <div class="mb-3">
     <label class="form-label">Nome</label>
