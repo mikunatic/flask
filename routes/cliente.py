@@ -48,7 +48,21 @@ def form_edit_cliente(cliente_id):
 @cliente_route.route('/<int:cliente_id>/update', methods=['PUT'])
 def atualizar_cliente(cliente_id):
     """ Atualizar informações de um cliente """
-    pass
+    cliente_editado = None
+
+    # Obter dados do form de edição
+    data = request.json
+
+    # Obter usuário pelo id
+    for c in CLIENTES:
+        if c['id'] == cliente_id:
+            c['nome'] = data['nome']
+            c['email'] = data['email']
+
+            cliente_editado = c
+
+    # Editar usuário
+    return render_template('item_cliente.html', cliente=cliente_editado)
 
 
 @cliente_route.route('/<int:cliente_id>/delete', methods=['DELETE'])
