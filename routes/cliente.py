@@ -1,5 +1,4 @@
 from flask import Blueprint, render_template, request
-from database.cliente import CLIENTES
 from database.models.cliente import Cliente
 
 cliente_route = Blueprint('cliente', __name__)
@@ -46,9 +45,6 @@ def form_edit_cliente(cliente_id):
 
 @cliente_route.route('/<int:cliente_id>/update', methods=['PUT'])
 def atualizar_cliente(cliente_id):
-    """ Atualizar informações de um cliente """
-    cliente_editado = None
-
     # Obter dados do form de edição
     data = request.json
 
