@@ -1,5 +1,10 @@
 <ul>
     <li>ID: {{cliente.id}}</li>
+
     <li>NOME: {{cliente.nome}}</li>
+
     <li>EMAIL: {{cliente.email}}</li>
+    {% if edit %}
+        {% include 'input_edit.html' %}
+    {% endif %}
 </ul>

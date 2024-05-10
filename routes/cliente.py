@@ -33,14 +33,14 @@ def detalhe_cliente(cliente_id):
     """ Exibir detalhes de um cliente """
 
     cliente = Cliente.get_by_id(cliente_id)
-    return render_template('detalhe_cliente.html', cliente=cliente)
+    return render_template('detalhe_cliente.html', cliente=cliente, edit=False)
 
 
 @cliente_route.route('/<int:cliente_id>/edit')
 def form_edit_cliente(cliente_id):
     """ Formulario para editar um cliente """
     cliente = Cliente.get_by_id(cliente_id)
-    return render_template('form_cliente.html', cliente=cliente)
+    return render_template('detalhe_cliente.html', cliente=cliente, edit=True)
 
 
 @cliente_route.route('/<int:cliente_id>/update', methods=['PUT'])
